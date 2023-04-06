@@ -7,8 +7,10 @@ Send notifications via messaging apps from R.
 
 Currently supports the following messaging apps:
 
-- Google Chat (Google Workspace accounts only)
+- Google Workspace Spaces
+- Pushbullet
 - Slack
+- Zulip
 
 ## Installation
 
@@ -17,24 +19,55 @@ Currently supports the following messaging apps:
 remotes::install_github("FOR-CAST/notifications")
 ```
 
-## Example: Google Chat
+## Example: Google Workspace Spaces
 
 ### Configuration
 
-1. TODO
+see `?notify_google`
+
+### Usage
 
 ``` r
 library(notifications)
 notify_google()
 ```
 
-## Example: slack
+## Example: Pushbullet
 
 ### Configuration
 
-1. TODO
+see `?notify_pushbullet`
+
+### Usage
+
+``` r
+library(notifications)
+notify_pushbullet()
+```
+
+## Example: Slack
+
+### Configuration
+
+see `?notify_slack`
+
+### Usage
 
 ``` r
 library(notifications)
 notify_slack()
 ```
+
+## Example: Zulip
+
+### Configuration
+
+see `?notify_zulip`
+
+### Usage
+
+``` r
+library(notifications)
+notify_zulip()
+```
+
