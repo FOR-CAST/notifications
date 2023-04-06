@@ -19,3 +19,5 @@ Imports:
     yaml
 RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
+URL: https://github.com/FOR-CAST/notifications
+BugReports: https://github.com/FOR-CAST/notifications/issues
