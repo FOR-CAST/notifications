@@ -1,0 +1,21 @@
+Package: notifications
+Type: Package
+Title: Send Notifications Via Messaging Apps
+Version: 0.0.1
+Description: Simple wrappers around notification functions for Google Workspace Spaces,
+    Slack, Pushbullet, Zulip, and others. Useful for notifying users upon completeion of
+    long-running code (or of errors).
+Authors@R: c(
+    person("Alex M", "Chubaty", email = "achubaty@for-cast.ca",
+           role = c("aut", "cre"), comment = c(ORCID = "0000-0001-7146-8135"))
+    )
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    httr,
+    RPushbullet,
+    slackr,
+    yaml
+RoxygenNote: 7.2.3
+Roxygen: list(markdown = TRUE)
