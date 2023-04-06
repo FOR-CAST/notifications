@@ -29,7 +29,7 @@ see `?notify_google`
 
 ``` r
 library(notifications)
-notify_google()
+notify_google("Here's an important message about the code you just ran: it worked!")
 ```
 
 ## Example: Pushbullet
@@ -42,7 +42,7 @@ see `?notify_pushbullet`
 
 ``` r
 library(notifications)
-notify_pushbullet()
+notify_pushbullet("Your job has compeleted.")
 ```
 
 ## Example: Slack
@@ -55,7 +55,7 @@ see `?notify_slack`
 
 ``` r
 library(notifications)
-notify_slack()
+notify_slack("Error running job. See `traceback()` for more details.")
 ```
 
 ## Example: Zulip
@@ -68,6 +68,6 @@ see `?notify_zulip`
 
 ``` r
 library(notifications)
-notify_zulip()
+notify_zulip("There was a problem with your script - please check the logs.")
 ```
 
