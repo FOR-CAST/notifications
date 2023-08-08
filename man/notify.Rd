@@ -56,10 +56,26 @@ Requires a Google Workspace account and 'Space' be setup and configured with a w
 \if{html}{\out{<div class="sourceCode">}}\preformatted{webhook_url: https://chat.googleapis.com/v1/spaces/your_key_and_token_etc
 }\if{html}{\out{</div>}}
 }
+}
+
+\section{Pushbullet}{
 
 
+\code{notify_pushbullet()} is a wrapper around \code{RPushbullet::pbPost()}
 
-\code{notify_google()} is a wrapper around \code{httr::POST()}
+Use \code{RPushbullet::pbSetup()} to configure your machine to use Pushbullet.
+}
+
+\section{Slack}{
+
+
+\code{notify_slack()} is a wrapper around \code{slackr::slackr_msg()}
+}
+
+\section{Zulip}{
+
+
+\code{notify_zulip()} is a wrapper around \code{httr::POST()}
 
 Requires Zulip be setup and configured with a webhook url:
 \enumerate{
@@ -77,19 +93,5 @@ zulip_topic: optional topic name
 }
 
 If a stream is not specified, private messages will be sent to the creator of the bot.
-}
-
-\section{Pushbullet}{
-
-
-\code{notify_pushbullet()} is a wrapper around \code{RPushbullet::pbPost()}
-
-Use \code{RPushbullet::pbSetup()} to configure your machine to use Pushbullet.
-}
-
-\section{Slack}{
-
-
-\code{notify_slack()} is a wrapper around \code{slackr::slackr_msg()}
 }
 

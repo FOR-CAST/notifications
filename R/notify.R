@@ -81,9 +81,9 @@ notify_slack <- function(msg, config_file = "~/.slackr", ...) {
   return(invisible(resp))
 }
 
-#' @section Google Workspace Spaces:
+#' @section Zulip:
 #'
-#' `notify_google()` is a wrapper around `httr::POST()`
+#' `notify_zulip()` is a wrapper around `httr::POST()`
 #'
 #' Requires Zulip be setup and configured with a webhook url:
 #'
