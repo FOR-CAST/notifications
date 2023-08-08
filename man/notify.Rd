@@ -53,7 +53,7 @@ Requires a Google Workspace account and 'Space' be setup and configured with a w
 \item Copy the webhook url;
 \item Create a text file \verb{~/.rgooglespaces}, and add the following using your copied webhook url:
 
-\if{html}{\out{<div class="sourceCode">}}\preformatted{webhook_url: https://chat.googleapis.com/v1/spaces/your_key_and_token_etc
+\if{html}{\out{<div class="sourceCode">}}\preformatted{webhook_url: https://chat.googleapis.com/v1/spaces/<your_key_and_token_etc>
 }\if{html}{\out{</div>}}
 }
 }

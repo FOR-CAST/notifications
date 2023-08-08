@@ -32,7 +32,7 @@ NULL
 #' 5. Copy the webhook url;
 #' 6. Create a text file `~/.rgooglespaces`, and add the following using your copied webhook url:
 #'     ```
-#'     webhook_url: https://chat.googleapis.com/v1/spaces/your_key_and_token_etc
+#'     webhook_url: https://chat.googleapis.com/v1/spaces/<your_key_and_token_etc>
 #'     ```
 #'
 #' @export
