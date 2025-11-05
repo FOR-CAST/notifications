@@ -42,7 +42,7 @@ NULL
 notify_google <- function(msg, config_file = "~/.rgooglespaces", ...) {
   config <- yaml::read_yaml(config_file)
   if (file.exists(config_file)) {
-    resp <-  httr::POST(url = config$webhook_url, body = list(text = msg), encode = "json")
+    resp <- httr::POST(url = config$webhook_url, body = list(text = msg), encode = "json")
   } else {
     stop(paste("Configuration file", config_file, "not found. See ?notify_google."))
   }
@@ -57,10 +57,11 @@ notify_google <- function(msg, config_file = "~/.rgooglespaces", ...) {
 #' Use `RPushbullet::pbSetup()` to configure your machine to use Pushbullet.
 #'
 #' @export
-#' @importFrom RPushbullet pbPost
 #' @name notify_slack
 #' @rdname notify
 notify_pushbullet <- function(msg, ...) {
+  requireNamespace("RPushbullet", quietly = TRUE)
+
   resp <- RPushbullet::pbPost(body = msg, ...)
 
   return(invisible(resp))
@@ -71,10 +72,11 @@ notify_pushbullet <- function(msg, ...) {
 #' `notify_slack()` is a wrapper around `slackr::slackr_msg()`
 #'
 #' @export
-#' @importFrom slackr slackr_msg slackr_setup
 #' @name notify_slack
 #' @rdname notify
 notify_slack <- function(msg, config_file = "~/.slackr", ...) {
+  requireNamespace("slackr", quietly = TRUE)
+
   slackr::slackr_setup(config_file = config_file)
   resp <- slackr::slackr_msg(txt = msg, ...)
 
@@ -110,16 +112,21 @@ notify_zulip <- function(msg, config_file = "~/.rzulip", ...) {
   config <- yaml::read_yaml(config_file)
   ## see <https://zulip.com/integrations/doc/slack_incoming>
   url <- paste0(
-    "https://", config$zulip_domain, "/api/v1/external/slack_incoming",
-    "?api_key=", config$zulip_apikey,
-    if (!is.null(config$stream))
-      paste0("&stream=", URLencode(config$zulip_stream, reserved = TRUE)),
-    if (!is.null(config$stream) && !is.null(config$topic))
-                  paste0("&topic=", URLencode(config$zulip_topic, reserved = TRUE))
+    "https://",
+    config$zulip_domain,
+    "/api/v1/external/slack_incoming",
+    "?api_key=",
+    config$zulip_apikey,
+    if (!is.null(config$stream)) {
+      paste0("&stream=", URLencode(config$zulip_stream, reserved = TRUE))
+    },
+    if (!is.null(config$stream) && !is.null(config$topic)) {
+      paste0("&topic=", URLencode(config$zulip_topic, reserved = TRUE))
+    }
   )
 
   if (file.exists(config_file)) {
-    resp <-  httr::POST(url = url, body = list(text = msg), encode = "json")
+    resp <- httr::POST(url = url, body = list(text = msg), encode = "json")
   } else {
     stop(paste("Configuration file", config_file, "not found. See ?notify_zulip."))
   }
